@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Image resize</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="left-menu">
+        <div class="menu">
+            <div class="heading">
+                Crop Menu
+            </div>
+            <div class="body">
+                <div>
+                    <input type="checkbox" id="isCrop" autocomplete="off" />
+                    <label for="isCrop">Enable Crop</label>
+                    <br /><br />
+                </div>
+
+                <input type="button" value="Crop" id="crop" />
+            </div>
+        </div>
+        <div class="menu">
+            <div class="heading">
+                Resize Menu
+            </div>
+            <div class="body">
+                <div>
+                    <select id="sizeBox" autocomplete="off">
+                        <option value="">---Select size---</option>
+                        <option value="25">25% smaller</option>
+                        <option value="50">50% smaller</option>
+                        <option value="75">75% smaller</option>
+                        <option value="custom">Custom size</option>
+                    </select>
+                    <br /><br />
+                </div>
+                <div id="measurement">
+                    <input type="text" placeholder="Width (px)" id="width" />
+                    <input type="text" placeholder="Height (px)" id="height" />
+                    <br /><br />
+                </div>
+
+                <input type="button" value="Change size" id="changeSize" />
+            </div>
+        </div>
+        <div class="menu">
+            <div class="heading">
+                Rotate Menu
+            </div>
+            <div class="body">
+                <div>
+                    <input type="button" value="Rotate 90&#176   CW" id="cw" />
+                    <input type="button" value="Rotate 90&#176 CCW" id="ccw" />
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <a href="#" id="download">Download</a>
+    </div>
+
+    <div class="right-side">
+        <div class="file_input">
+            <strong>Choose photo: </strong>
+            <input type="file" accept="image/gif,image/jpeg,image/jpg,image/jpe,image/png" id="facePhoto" autocomplete="off" />
+        </div>
+        <div class="container">
+            <div class="panel resizable draggable">
+                <div class="panel-heading draggable-handler"></div>
+            </div>
+            <canvas id="face_canvas" width="0" height="0"></canvas>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
