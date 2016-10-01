@@ -1,6 +1,7 @@
 ﻿var canvas_img = new function () {
-    var canvas = $('#face_canvas')[0];
-    var ctx = canvas.getContext("2d");
+    var canvas = $('#face_canvas')[0],
+        ctx = canvas.getContext("2d"),
+        fileName = '';
     
     function draw(img) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -124,7 +125,7 @@
 
     $('#download').click(function () {
         this.href = canvas.toDataURL();
-        this.download = 'image.png';
+        this.download = fileName;
     });
 
     $('#crop').click(function () {
@@ -147,7 +148,7 @@
     });
 
     $('#facePhoto').change(function () {
-        var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'jpe'];
+        var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'jpe', 'bmp'];
         if (fileExtension.indexOf($(this).val().split('.').pop().toLowerCase()) == -1) {
             $(this).val('');
             alert("Only formats are allowed : " + fileExtension.join(', '));
@@ -156,13 +157,18 @@
 
         var file, _URL = window.URL || window.webkitURL;
 
-        if ((file = this.files[0])) {
+        if (file = this.files[0]) {
+            fileName = this.files[0].name.trim() ? 'rez_' + this.files[0].name : 'rez_image.png';
             var img = new Image();
             img.onload = function () {
                 draw(this);
             };
             img.src = _URL.createObjectURL(file);
         }
+    });
+
+    $('#restoreOriginal').click(function() {
+        $('#facePhoto').change();
     });
 
     $('.draggable-handler').mousedown(function(e) {

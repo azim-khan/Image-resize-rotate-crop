@@ -46,7 +46,8 @@
 }
 
 .panel {
-    border: 1px dashed #000000;
+    background-color: #dadada;
+    border: 1px dashed #9b9b9b;
     min-height: 28px;
     -moz-min-width: 28px;
     -ms-min-width: 28px;
@@ -54,10 +55,11 @@
     -webkit-min-width: 28px;
     min-width: 28px;
     display: none;
+    opacity: 0.7;
 }
 
 .resizable {
-    overflow: hidden;
+    overflow: auto;
     -moz-resize: both;
     -ms-resize: both;
     -o-resize: both;
